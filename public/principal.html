@@ -8,16 +8,23 @@
 
 <body>
     <h1>Alura Typer</h1>
-    <p class="frase">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ornare malesuada tempus. Vestibulum
-        sodales suscipit sapien sit amet tempor. Maecenas sollicitudin libero a est dignissim, vel egestas nisl
-        facilisis. Aliquam hendrerit quam ac venenatis elementum. Nunc lacinia ante et nibh luctus aliquam. In sed
-        gravida leo. Phasellus at vestibulum leo, eget interdum velit. Vestibulum vestibulum, mi sit amet blandit
-        lacinia, sem ex lobortis elit, fermentum dapibus mauris nunc eu ante. Sed placerat purus quam, ut viverra dolor
-        molestie vel.</p>
+<p class="frase">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ornare malesuada tempus. Vestibulum
+sodales suscipit sapien sit amet tempor. Maecenas sollicitudin libero a est dignissim, vel egestas nisl
+facilisis. Aliquam hendrerit quam ac venenatis elementum. Nunc lacinia ante et nibh luctus aliquam. In sed
+gravida leo. Phasellus at vestibulum leo, eget interdum velit. Vestibulum vestibulum, mi sit amet blandit
+lacinia, sem ex lobortis elit, fermentum dapibus mauris nunc eu ante. Sed placerat purus quam, ut viverra dolor
+molestie vel.</p>
 
     <ul class="informacoes">
-        <li>30 palavras</li>
+        <li><span id="tamanho-frase">30</span> palavras</li>
         <li>10 segundos</li>
+    </ul>
+
+    <textarea name="" class="campo-digitacao" cols="30" rows="10"></textarea>
+
+    <ul>
+        <li><span id="contador-caracteres">0</span> Caracteres</li>
+        <li><span id="contador-palavras">0</span> Palavras</li>
     </ul>
 
     <script src="./js/jquery.js"></script>
