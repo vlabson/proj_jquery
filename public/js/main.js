@@ -16,4 +16,5 @@ areaTxt.on("input", function(){
    
     var qtdCaracteres = txt.length;
     $("#contador-caracteres").text(qtdCaracteres);
+    console.log();
 })
