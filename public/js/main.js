@@ -53,6 +53,7 @@ function inicializaCronometro() {
             if (tempoRestante < 1) {/** teste se o tempo é igual a zero e sendo verdade executa as rotinas dentro */
                 areaTxt.attr("disabled", true); /** desabilita areatxt bloqueando para digitação */
                 clearInterval(idSetinterval); /** para o temporizador deixando no zero  */
+                areaTxt.toggleClass("campo-desativado");
             }
 
         }, 1000);
@@ -66,5 +67,6 @@ function reiniciaJogo(){
     $("#contador-palavras").text("0");
     $("#tempo-digitacao").text(tempoInicial);
     inicializaCronometro();
+    areaTxt.toggleClass("campo-desativado");
 }
 

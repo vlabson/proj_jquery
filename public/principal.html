@@ -4,31 +4,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Alura Typer</title>
+    <link rel="stylesheet" href="css/libs/materialize.min.css">
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 
 <body>
-    <h1>Alura Typer</h1>
-    <p class="frase">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ornare malesuada tempus. Vestibulum
-        sodales suscipit sapien sit amet tempor. Maecenas sollicitudin libero a est dignissim, vel egestas nisl
-        facilisis. Aliquam hendrerit quam ac venenatis elementum. Nunc lacinia ante et nibh luctus aliquam. In sed
-        gravida leo. Phasellus at vestibulum leo, eget interdum velit. Vestibulum vestibulum, mi sit amet blandit
-        lacinia, sem ex lobortis elit, fermentum dapibus mauris nunc eu ante. Sed placerat purus quam, ut viverra dolor
-        molestie vel.</p>
+    <div class="container">
+        <h1 class="center">Alura Typer</h1>
+        <p class="frase center">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce ornare malesuada tempus.
+            Vestibulum
+            sodales suscipit sapien sit amet tempor. Maecenas sollicitudin libero a est dignissim, vel egestas nisl
+            facilisis. Aliquam hendrerit quam ac venenatis elementum. Nunc lacinia ante et nibh luctus aliquam. In sed
+            gravida leo. Phasellus at vestibulum leo, eget interdum velit. Vestibulum vestibulum, mi sit amet blandit
+            lacinia, sem ex lobortis elit, fermentum dapibus mauris nunc eu ante. Sed placerat purus quam, ut viverra
+            dolor
+            molestie vel.</p>
 
-    <ul class="informacoes">
-        <li><span id="tamanho-frase">30</span> palavras</li>
-        <li><span id="tempo-digitacao">3</span> segundos</li>
-    </ul>
+        <ul class="informacoes center">
+            <li><span id="tamanho-frase">30</span> palavras</li>
+            <li><span id="tempo-digitacao">3</span> segundos</li>
+        </ul>
 
-    <textarea name="" class="campo-digitacao" cols="30" rows="10"></textarea>
-    <button id="botao-reiniciar">Reiniciar Jogo</button>
+        <textarea name="" class="campo-digitacao" cols="30" rows="10"></textarea>
+        <button id="botao-reiniciar">Reiniciar Jogo</button>
 
-    <ul>
-        <li><span id="contador-caracteres">0</span> Caracteres</li>
-        <li><span id="contador-palavras">0</span> Palavras</li>
-    </ul>
+        <ul class="center">
+            <li><span id="contador-caracteres">0</span> Caracteres</li>
+            <li><span id="contador-palavras">0</span> Palavras</li>
+        </ul>
 
-
+    </div>
 
     <script src="./js/jquery.js"></script>
     <script src="./js/main.js"></script>
