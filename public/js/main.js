@@ -6,8 +6,25 @@ $(function(){ /** função que executa seu corpo apos o DOM ter carregado por co
     atualizaTamanhoFrase();
     inicializaContadores();
     inicializaCronometro();
+    inicializaMarcadores();
     $("#botao-reiniciar").click(reiniciaJogo);
 });
+
+function inicializaMarcadores(){
+    var frase = $(".frase").text();
+    areaTxt.on("input", function(){
+        var digitado = areaTxt.val();
+        var comparavel = frase.substr(0,digitado.length);
+
+        if(digitado == comparavel){
+            areaTxt.addClass("borda-verde");
+            areaTxt.removeClass("borda-vermelha");
+        }else{
+            areaTxt.addClass("borda-vermelha");
+            areaTxt.removeClass("borda-verde");
+        }
+    })
+}
 
 function atualizaTamanhoFrase(){
     var frase = $(".frase").text();/* usando JQuery capturo a Frase por meio da Class e armazeno na variavel */
@@ -54,6 +71,8 @@ function inicializaCronometro() {
                 areaTxt.attr("disabled", true); /** desabilita areatxt bloqueando para digitação */
                 clearInterval(idSetinterval); /** para o temporizador deixando no zero  */
                 areaTxt.toggleClass("campo-desativado");
+                areaTxt.removeClass("borda-verde");
+                areaTxt.removeClass("borda-vermelha");
             }
 
         }, 1000);
