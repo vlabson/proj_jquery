@@ -1,3 +1,7 @@
+body{
+    overflow: scroll;
+}
+
 .campo-digitacao{
     font-size: 20px;
     height: 130px;
@@ -18,9 +22,13 @@
 }
 
 .borda-verde{
-    border: 3px solid green;
+    border: 3px solid green !important;
 }
 
 .borda-vermelha{
-    border: 3px solid red;
+    border: 3px solid red !important;
+}
+
+.placar{
+    display: none;
 }

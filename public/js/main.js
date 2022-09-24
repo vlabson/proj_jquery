@@ -2,7 +2,7 @@ var tempoInicial = $("#tempo-digitacao").text();
 /* captura html da tag pelo Id e armazena na variavel */
 var areaTxt = $(".campo-digitacao");
 
-$(function(){ /** função que executa seu corpo apos o DOM ter carregado por completo */
+$(function () { /** função ready( ) ou $( ) que executa seu corpo apos o DOM ter carregado por completo */
     atualizaTamanhoFrase();
     inicializaContadores();
     inicializaCronometro();
@@ -10,23 +10,8 @@ $(function(){ /** função que executa seu corpo apos o DOM ter carregado por co
     $("#botao-reiniciar").click(reiniciaJogo);
 });
 
-function inicializaMarcadores(){
-    var frase = $(".frase").text();
-    areaTxt.on("input", function(){
-        var digitado = areaTxt.val();
-        var comparavel = frase.substr(0,digitado.length);
-
-        if(digitado == comparavel){
-            areaTxt.addClass("borda-verde");
-            areaTxt.removeClass("borda-vermelha");
-        }else{
-            areaTxt.addClass("borda-vermelha");
-            areaTxt.removeClass("borda-verde");
-        }
-    })
-}
-
-function atualizaTamanhoFrase(){
+/** função que verifica a frase e identifica quantas palavras tem a frase */
+function atualizaTamanhoFrase() { 
     var frase = $(".frase").text();/* usando JQuery capturo a Frase por meio da Class e armazeno na variavel */
     var numPalavras = frase.split(" ").length; /* utilizo a variavel e aplico a funcao split para quebrar e 
     separa todas as palavras e por fim utilizo length para contar quantidade de palavras no total*/
@@ -35,8 +20,8 @@ function atualizaTamanhoFrase(){
 }
 
 
-
-function inicializaContadores(){
+/** função com evento de escuta para o que esta sendo digitado na areatxt e conta quantas palavras foram digitados e quantos caracteres. */
+function inicializaContadores() {
     /* usando a variavel realizamos a escuta de um evento onde a cada digitação no teclado e executado as rotinas 
     dentro da funcao anonima */
     areaTxt.on("input", function () {
@@ -54,7 +39,7 @@ function inicializaContadores(){
     })
 }
 
-
+/** funcão cronometro que ativa com click e quando termina o tempo chama a função finaliza jogo */
 function inicializaCronometro() {
     /*capturo o texto da teg pelo id + a funcao text e armazeno na variavel */
     var tempoRestante = $("#tempo-digitacao").text();
@@ -68,18 +53,44 @@ function inicializaCronometro() {
             $("#tempo-digitacao").text(tempoRestante);/* captura o html e muda o texto passando o novo texto por parametro*/
 
             if (tempoRestante < 1) {/** teste se o tempo é igual a zero e sendo verdade executa as rotinas dentro */
-                areaTxt.attr("disabled", true); /** desabilita areatxt bloqueando para digitação */
                 clearInterval(idSetinterval); /** para o temporizador deixando no zero  */
-                areaTxt.toggleClass("campo-desativado");
-                areaTxt.removeClass("borda-verde");
-                areaTxt.removeClass("borda-vermelha");
+                finalizaJogo();
             }
 
         }, 1000);
     })
 }
 
-function reiniciaJogo(){
+/** função bloqueia a areatxt para a digitação, mostra efeito visual e chama função de inserir placar */
+function finalizaJogo() {
+    areaTxt.attr("disabled", true); /** desabilita areatxt bloqueando para digitação */
+    areaTxt.toggleClass("campo-desativado");
+    inserirPlacar();
+}
+
+
+
+/**função para fazer comparação instantanea do que esta sendo digitado com a Frase exibida e mostra um resultado visual de certo ou errado  */
+function inicializaMarcadores() {
+    var frase = $(".frase").text();/** para a frase */
+    areaTxt.on("input", function () { /** escuta o que esta sendo digitado  e compara com a frase*/
+        var digitado = areaTxt.val(); /** para o que esta sendo digitado */
+        var comparavel = frase.substr(0, digitado.length); /** pega trecho da frase do mesmo tamanho do que esta sendo digitado para comparar */
+
+        if (digitado == comparavel) {/** compara os dois textos e devolve resultado visual */
+            areaTxt.addClass("borda-verde");
+            areaTxt.removeClass("borda-vermelha");
+        } else {
+            areaTxt.addClass("borda-vermelha");
+            areaTxt.removeClass("borda-verde");
+        }
+    })
+}
+
+
+
+
+function reiniciaJogo() {
     areaTxt.attr("disabled", false);
     areaTxt.val("");
     $("#contador-caracteres").text("0");
@@ -87,5 +98,7 @@ function reiniciaJogo(){
     $("#tempo-digitacao").text(tempoInicial);
     inicializaCronometro();
     areaTxt.toggleClass("campo-desativado");
+    areaTxt.removeClass("borda-verde");
+    areaTxt.removeClass("borda-vermelha");
 }
 
